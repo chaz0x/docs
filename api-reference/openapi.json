@@ -57,7 +57,7 @@
         }
       },
     },
-    "deposit": {
+    "/deposit": {
       "post": {
         "description": "Processes a user's deposit tx",
         "requestBody": {
