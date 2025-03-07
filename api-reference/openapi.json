@@ -209,39 +209,37 @@
         }
       }
     },
-    "/trade": {
-      "/buy": {
-        "post": {
-          "description": "Processes a user's buy action",
-          "requestBody": {
-            "description": "Buy action payload",
+    "/trade_buy": {
+      "post": {
+        "description": "Processes a user's buy action",
+        "requestBody": {
+          "description": "Buy action payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Trade response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TradeRequest"
+                  "$ref": "#/components/schemas/TradeResponse"
                 }
               }
-            },
-            "required": true
+            }
           },
-          "responses": {
-            "200": {
-              "description": "Trade response",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/TradeResponse"
-                  }
-                }
-              }
-            },
-            "500": {
-              "description": "Error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
