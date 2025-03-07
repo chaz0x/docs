@@ -47,7 +47,8 @@
               "api-reference/endpoint/withdraw_status",
               "api-reference/endpoint/trade_buy",
               "api-reference/endpoint/trade_sell",
-              "api-reference/endpoint/trade_status"
+              "api-reference/endpoint/trade_status",
+              "api-reference/endpoint/central_wallet"
             ]
           }
         ]

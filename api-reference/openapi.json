@@ -322,6 +322,34 @@
           }
         }
       }
+    },
+    "/central_wallet": {
+      "get": {
+        "description": "Gets central wallet address",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Central Wallet response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CentralWalletResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -536,6 +564,18 @@
           },
           "message": {
             "description": "details",
+            "type": "string"
+          }
+        }
+      },
+      "CentralWalletResponse": {
+        "required": [
+          "address"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "description": "Central wallet address",
             "type": "string"
           }
         }
