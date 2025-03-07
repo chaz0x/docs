@@ -209,7 +209,7 @@
         }
       }
     },
-    "/trade_buy": {
+    "/trade": {
       "post": {
         "description": "Processes a user's buy action",
         "requestBody": {
@@ -247,7 +247,7 @@
         }
       }
     },
-     "/trade/sell": {
+    "/trade/sell": {
       "post": {
         "description": "Processes a user's sell action",
         "requestBody": {
