@@ -45,17 +45,55 @@
             }
           },
           "500": {
-            "description": "Authentication failed",
+            "description": "Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidSignature"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
           }
         }
       },
+    },
+    "deposit": {
+      "post": {
+        "description": "Processes a user's deposit tx",
+        "requestBody": {
+          "description": "TBD",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Deposit response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/deposit/{tx_id}": {
       "get": {
@@ -129,6 +167,33 @@
           "balances": {
             "description": "This object maps token addresses to their corresponding  `BalanceInfo` which includes available and freeze balances",
             "type": "object"
+          }
+        }
+      },
+      "DepositRequest": {
+        "required": [
+          "token",
+          "tx_id",
+          "user_address",
+          "signature"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "description": "A token address which user deposits",
+            "type": "string"
+          },
+          "tx_id": {
+            "description": "Deposit transaction id",
+            "type": "string"
+          },
+          "user_address": {
+            "description": "User's wallet address",
+            "type": "string"
+          },
+          "signature": {
+            "description": "Signed {token}{tx_id} by user's wallet",
+            "type": "string"
           }
         }
       },

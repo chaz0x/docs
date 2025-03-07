@@ -41,6 +41,7 @@
             "group": "Endpoints",
             "pages": [
               "api-reference/endpoint/check_balance",
+              "api-reference/endpoint/deposit",
               "api-reference/endpoint/deposit_status"
             ]
           }
