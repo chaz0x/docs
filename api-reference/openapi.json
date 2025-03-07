@@ -132,6 +132,82 @@
           }
         }
       }
+    },
+    "/withdraw": {
+      "post": {
+        "description": "Processes a user's withdraw action",
+        "requestBody": {
+          "description": "Token address & amount to be withdrawn",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Withdraw response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WithdrawResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/withdraw/{tx_id}": {
+      "get": {
+        "description": "Gets withdraw status based on tx_id supplied",
+        "parameters": [
+          {
+            "name": "tx_id",
+            "in": "path",
+            "description": "withdraw transaction id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Withdraw response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WithdrawStatusResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -205,6 +281,76 @@
         "properties": {
           "status": {
             "description": "success | not found",
+            "type": "string"
+          },
+          "message": {
+            "description": "details",
+            "type": "string"
+          }
+        }
+      },
+      "WithdrawRequest": {
+        "required": [
+          "token_address",
+          "user_address",
+          "amount",
+          "signature"
+        ],
+        "type": "object",
+        "properties": {
+          "token_address": {
+            "description": "A token address which user withdraws",
+            "type": "string"
+          },
+          "user_address": {
+            "description": "User's wallet address",
+            "type": "string"
+          },
+          "amount": {
+            "description": "Token amount to be withdrawn",
+            "type": "string",
+            "format": "int64"
+          },
+          "signature": {
+            "description": "Signed {user_address}{token_address}{amount} by user's wallet",
+            "type": "string"
+          }
+        }
+      },
+      "WithdrawResponse": {
+        "required": [
+          "tx_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "tx_id": {
+            "description": "Withdraw transaction id",
+            "type": "string"
+          },
+          "status": {
+            "description": "in progress | successed | failed",
+            "type": "string"
+          },
+          "message": {
+            "description": "details",
+            "type": "string"
+          }
+        }
+      },
+      "WithdrawStatusResponse": {
+        "required": [
+          "tx_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "tx_id": {
+            "description": "Withdraw transaction id",
+            "type": "string"
+          },
+          "status": {
+            "description": "in progress | successed | failed | not found in db",
             "type": "string"
           },
           "message": {
