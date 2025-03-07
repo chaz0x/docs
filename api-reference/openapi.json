@@ -209,7 +209,7 @@
         }
       }
     },
-    "/trade": {
+    "/buy": {
       "post": {
         "description": "Processes a user's buy action",
         "requestBody": {
