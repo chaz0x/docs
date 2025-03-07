@@ -242,7 +242,7 @@
       },
       "ErrorInvalidSignature": {
         "type": "string",
-        "enum": "- Invalid Signature - Invalid PublicKey - Signature verification failed"
+        "enum": "Signature verification failed"
       },
       "Error": {
         "required": [
