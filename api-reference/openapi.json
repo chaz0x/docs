@@ -44,12 +44,12 @@
               }
             }
           },
-          "400": {
-            "description": "unexpected error",
+          "500": {
+            "description": "authentication failed",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/ErrorInvalidSignature"
                 }
               }
             }
@@ -239,6 +239,10 @@
             }
           }
         ]
+      },
+      "ErrorInvalidSignature": {
+        "type": "string",
+        "description": "Invalid signature"
       },
       "Error": {
         "required": [
