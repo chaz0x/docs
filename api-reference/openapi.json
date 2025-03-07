@@ -39,7 +39,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/BalanceResponse"
                 }
               }
             }
@@ -189,6 +189,18 @@
           "signature": {
             "description": "Signed {action}{user_address} by user's wallet",
             "type": "string"
+          }
+        }
+      },
+      "BalanceResponse": {
+        "required": [
+          "balances"
+        ],
+        "type": "object",
+        "properties": {
+          "balances": {
+            "description": "This object maps token addresses to their corresponding  `BalanceInfo` which includes available and freeze balances",
+            "type": "object"
           }
         }
       },
