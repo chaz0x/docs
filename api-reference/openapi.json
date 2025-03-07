@@ -45,7 +45,7 @@
             }
           },
           "500": {
-            "description": "authentication failed",
+            "description": "Authentication failed",
             "content": {
               "application/json": {
                 "schema": {
@@ -242,7 +242,7 @@
       },
       "ErrorInvalidSignature": {
         "type": "string",
-        "description": "Invalid signature"
+        "enum": "- Invalid Signature - Invalid PublicKey - Signature verification failed"
       },
       "Error": {
         "required": [
