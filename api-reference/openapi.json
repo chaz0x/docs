@@ -284,6 +284,44 @@
           }
         }
       }
+    },
+    "/trade/{tx_id}": {
+      "get": {
+        "description": "Gets trade status based on tx_id supplied",
+        "parameters": [
+          {
+            "name": "tx_id",
+            "in": "path",
+            "description": "buy/sell transaction id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trade response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeStatusResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -478,6 +516,22 @@
           },
           "status": {
             "description": "initiated",
+            "type": "string"
+          },
+          "message": {
+            "description": "details",
+            "type": "string"
+          }
+        }
+      },
+      "TradeStatusResponse": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "description": "in progress | successed | failed",
             "type": "string"
           },
           "message": {
