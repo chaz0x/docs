@@ -37,15 +37,11 @@
       {
         "tab": "API Reference",
         "groups": [
+          
           {
-            "group": "API Documentation",
+            "group": "Endpoints",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
+              "api-reference/endpoint/check_balance",
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete"
