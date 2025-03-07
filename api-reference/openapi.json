@@ -246,44 +246,6 @@
           }
         }
       }
-    },
-    "/trade/sell": {
-      "post": {
-        "description": "Processes a user's sell action",
-        "requestBody": {
-          "description": "Sell action payload",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TradeRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Trade response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TradeResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
