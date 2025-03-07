@@ -209,7 +209,7 @@
         }
       }
     },
-    "/buy": {
+    "/trade/buy": {
       "post": {
         "description": "Processes a user's buy action",
         "requestBody": {
@@ -225,7 +225,45 @@
         },
         "responses": {
           "200": {
-            "description": "Trade response",
+            "description": "Buy trade response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradeResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trade/sell": {
+      "post": {
+        "description": "Processes a user's sell action",
+        "requestBody": {
+          "description": "Sell action payload",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Sell trade response",
             "content": {
               "application/json": {
                 "schema": {
@@ -411,11 +449,11 @@
           },
           "slippage_bps": {
             "description": "Slippage ranging from 1 to 10000",
-            "type": "string"
+            "type": "integer"
           },
           "deadline": {
             "description": "Transaction deadline",
-            "type": "string"
+            "type": "integer"
           },
           "user_address": {
             "description": "User's wallet address",
