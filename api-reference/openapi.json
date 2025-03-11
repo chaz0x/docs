@@ -676,14 +676,16 @@
     },
     "responses": {
       "UnauthorizedError": {
+        "type": "string",
         "description": "API key is missing or invalid"
       }
     },
     "securitySchemes": {
       "ApiKeyAuth": {
+        "description": "",
         "type": "apiKey",
         "in": "header",
-        "name": "X-API-KEY"
+        "name": "x-api-key"
       }
     }
   }
