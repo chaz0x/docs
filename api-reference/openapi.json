@@ -19,7 +19,7 @@
     }
   ],
   "paths": {
-    "/check_balance": {
+    "/balance/query": {
       "post": {
         "description": "Returns all balances of tokens for the user",
         "requestBody": {
