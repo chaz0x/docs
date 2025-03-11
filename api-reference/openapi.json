@@ -10,12 +10,12 @@
   },
   "servers": [
     {
-      "url": "https://api.vanish.trade/v2"
+      "url": "https://api.vanish.trade/core"
     }
   ],
   "security": [
     {
-      "bearerAuth": []
+      "ApiKeyAuth": []
     }
   ],
   "paths": {
@@ -40,6 +40,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BalanceResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
                 }
               }
             }
@@ -82,6 +92,16 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Error",
             "content": {
@@ -116,6 +136,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DepositResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
                 }
               }
             }
@@ -158,6 +188,16 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Error",
             "content": {
@@ -192,6 +232,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WithdrawStatusResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
                 }
               }
             }
@@ -234,6 +284,16 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Error",
             "content": {
@@ -268,6 +328,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TradeResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
                 }
               }
             }
@@ -310,6 +380,16 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Error",
             "content": {
@@ -334,6 +414,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CentralWalletResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
                 }
               }
             }
@@ -584,10 +674,16 @@
         "type": "string",
       }
     },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "API key is missing or invalid"
+      }
+    },
     "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
       }
     }
   }
