@@ -23,7 +23,7 @@
       "post": {
         "description": "Returns all balances of tokens for the user",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Balance Query Request",
           "content": {
             "application/json": {
               "schema": {
