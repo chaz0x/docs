@@ -591,10 +591,15 @@
           "token_address",
           "slippage_bps",
           "user_address",
-          "signature"
+          "signature",
+          "is_public"
         ],
         "type": "object",
         "properties": {
+          "is_public": {
+            "description": "Boolean value indicating public mode or vanish mode",
+            "type": "bool"
+          },
           "token_address": {
             "description": "A token address which user buys",
             "type": "string"
