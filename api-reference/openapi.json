@@ -526,6 +526,7 @@
           "token_address",
           "user_address",
           "amount",
+          "timestamp",
           "signature"
         ],
         "type": "object",
@@ -543,8 +544,13 @@
             "type": "string",
             "format": "int64"
           },
+          "timestamp": {
+            "description": "Current timestamp. Seconds since 1970-01-01",
+            "type": "string",
+            "format": "int64"
+          },
           "signature": {
-            "description": "Signed {user_address}{token_address}{amount} by user's wallet",
+            "description": "Signed {user_address}{token_address}{amount}{timestamp} by user's wallet",
             "type": "string"
           }
         }
@@ -592,6 +598,7 @@
           "slippage_bps",
           "user_address",
           "signature",
+          "timestamp",
           "is_public"
         ],
         "type": "object",
@@ -620,8 +627,13 @@
             "description": "User's wallet address",
             "type": "string"
           },
+          "timestamp": {
+            "description": "Current timestamp. Seconds since 1970-01-01",
+            "type": "string",
+            "format": "int64"
+          },
           "signature": {
-            "description": "Signed {token_address}{amount}{slippage_bps}{deadline} by user's wallet",
+            "description": "Signed {token_address}{amount}{slippage_bps}{deadline}{timestamp} by user's wallet",
             "type": "string"
           }
         }
