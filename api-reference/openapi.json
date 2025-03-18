@@ -525,7 +525,9 @@
         "required": [
           "token_address",
           "user_address",
-          "amount"
+          "amount",
+          "timestamp",
+          "signature"
         ],
         "type": "object",
         "properties": {
@@ -541,6 +543,15 @@
             "description": "Token amount to be withdrawn",
             "type": "string",
             "format": "int64"
+          },
+          "timestamp": {
+            "description": "Current timestamp",
+            "type": "string",
+            "format": "int64"
+          },
+          "signature": {
+            "description": "Signed {user_address}{token_address}{amount}{timestamp} by user's wallet",
+            "type": "string"
           }
         }
       },
