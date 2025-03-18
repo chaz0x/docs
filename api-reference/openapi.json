@@ -49,7 +49,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -97,7 +97,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -145,7 +145,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -193,7 +193,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -241,7 +241,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -289,7 +289,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -337,7 +337,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -385,7 +385,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -423,7 +423,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
+                  "$ref": "#/components/responses/UnauthorizedError"
                 }
               }
             }
@@ -599,7 +599,7 @@
         "properties": {
           "is_public": {
             "description": "Boolean value indicating public mode or vanish mode",
-            "type": "bool"
+            "type": "boolean"
           },
           "token_address": {
             "description": "A token address which user buys",
@@ -687,7 +687,6 @@
     },
     "responses": {
       "UnauthorizedError": {
-        "type": "string",
         "description": "API key is missing or invalid"
       }
     },
