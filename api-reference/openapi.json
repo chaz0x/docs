@@ -165,7 +165,7 @@
     },
     "/withdraw": {
       "post": {
-        "description": "Hello Processes a user's withdraw action",
+        "description": "Processes a user's withdraw action",
         "requestBody": {
           "description": "Token address & amount to be withdrawn",
           "content": {
@@ -526,6 +526,7 @@
           "token_address",
           "user_address",
           "amount",
+          "timestamp",
           "signature"
         ],
         "type": "object",
@@ -543,8 +544,13 @@
             "type": "string",
             "format": "int64"
           },
+          "timestamp": {
+            "description": "Current timestamp. Seconds since 1970-01-01",
+            "type": "string",
+            "format": "int64"
+          },
           "signature": {
-            "description": "Signed {user_address}{token_address}{amount} by user's wallet",
+            "description": "Signed {user_address}{token_address}{amount}{timestamp} by user's wallet",
             "type": "string"
           }
         }
