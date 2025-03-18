@@ -545,7 +545,7 @@
             "format": "int64"
           },
           "timestamp": {
-            "description": "Current timestamp",
+            "description": "Current timestamp. Since 1970-01-01",
             "type": "string",
             "format": "int64"
           },
