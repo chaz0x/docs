@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Vanish Core API",
-    "description": "Vanish Core API endpoints",
+    "description": "API endpoints for the Vanish Core service.",
     "license": {
       "name": "MIT"
     },
@@ -21,9 +21,9 @@
   "paths": {
     "/balance/query": {
       "post": {
-        "description": "Returns all balances of tokens for the user",
+        "description": "Retrieves the user's token balances.",
         "requestBody": {
-          "description": "Balance Query Request",
+          "description": "Request payload for querying balances.",
           "content": {
             "application/json": {
               "schema": {
@@ -35,7 +35,7 @@
         },
         "responses": {
           "200": {
-            "description": "Balances response",
+            "description": "Successful response containing balance details.",
             "content": {
               "application/json": {
                 "schema": {
@@ -45,7 +45,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized access due to missing or invalid API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -55,7 +55,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -69,7 +69,7 @@
     },
     "/deposit": {
       "post": {
-        "description": "Processes a user's deposit tx",
+        "description": "Processes a deposit transaction for the user.",
         "requestBody": {
           "description": "TBD",
           "content": {
@@ -83,7 +83,7 @@
         },
         "responses": {
           "200": {
-            "description": "Deposit response",
+            "description": "Successful deposit response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -93,7 +93,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized access due to missing or invalid API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -103,7 +103,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -117,12 +117,12 @@
     },
     "/deposit/{tx_id}": {
       "get": {
-        "description": "Gets deposit status based on tx_id supplied",
+        "description": "Retrieves the status of a deposit transaction using the provided transaction ID.",
         "parameters": [
           {
             "name": "tx_id",
             "in": "path",
-            "description": "deposit transaction id",
+            "description": "Transaction id for the deposit transaction.",
             "required": true,
             "schema": {
               "type": "string"
@@ -131,7 +131,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Deposit response",
+            "description": "Deposit transaction status response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -141,7 +141,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized access due to missing or invalid API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -151,7 +151,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -165,9 +165,9 @@
     },
     "/withdraw": {
       "post": {
-        "description": "Processes a user's withdraw action",
+        "description": "Processes a user's withdrawal request.",
         "requestBody": {
-          "description": "Token address & amount to be withdrawn",
+          "description": "Details of the withdrawal, including the token address and the amount to be withdrawn.",
           "content": {
             "application/json": {
               "schema": {
@@ -179,7 +179,7 @@
         },
         "responses": {
           "200": {
-            "description": "Withdraw response",
+            "description": "Successful withdrawal response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -189,7 +189,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -199,7 +199,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -213,12 +213,12 @@
     },
     "/withdraw/{tx_id}": {
       "get": {
-        "description": "Gets withdraw status based on tx_id supplied",
+        "description": "Retrieves the status of a withdrawal transaction based on the provided transaction ID.",
         "parameters": [
           {
             "name": "tx_id",
             "in": "path",
-            "description": "withdraw transaction id",
+            "description": "The transaction ID of the withdrawal request.",
             "required": true,
             "schema": {
               "type": "string"
@@ -227,7 +227,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Withdraw response",
+            "description": "Successful withdrawal status response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -237,7 +237,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -247,7 +247,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -261,9 +261,9 @@
     },
     "/trade/buy": {
       "post": {
-        "description": "Processes a user's buy action",
+        "description": "Executes a buy trade request for the user.",
         "requestBody": {
-          "description": "Buy action payload",
+          "description": "Details of the buy trade request.",
           "content": {
             "application/json": {
               "schema": {
@@ -275,7 +275,7 @@
         },
         "responses": {
           "200": {
-            "description": "Buy trade response",
+            "description": "Successful buy trade response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -285,7 +285,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -295,7 +295,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -309,9 +309,9 @@
     },
     "/trade/sell": {
       "post": {
-        "description": "Processes a user's sell action",
+        "description": "Executes a sell trade request for the user.",
         "requestBody": {
-          "description": "Sell action payload",
+          "description": "Details of the sell trade request.",
           "content": {
             "application/json": {
               "schema": {
@@ -323,7 +323,7 @@
         },
         "responses": {
           "200": {
-            "description": "Sell trade response",
+            "description": "Successful sell trade response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -333,7 +333,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -343,7 +343,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -357,12 +357,12 @@
     },
     "/trade/{tx_id}": {
       "get": {
-        "description": "Gets trade status based on tx_id supplied",
+        "description": "Retrieves the status of a trade transaction (buy or sell) based on the provided transaction ID.",
         "parameters": [
           {
             "name": "tx_id",
             "in": "path",
-            "description": "buy/sell transaction id",
+            "description": "The transaction ID of the trade request.",
             "required": true,
             "schema": {
               "type": "string"
@@ -371,7 +371,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Trade response",
+            "description": "Successful trade status response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -381,7 +381,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -391,7 +391,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -405,11 +405,11 @@
     },
     "/central_wallet": {
       "get": {
-        "description": "Gets central wallet address",
+        "description": "Retrieves the address of the central wallet.",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Central Wallet response",
+            "description": "Successful central wallet response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -419,7 +419,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized Error",
+            "description": "Unauthorized request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -429,7 +429,7 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -453,15 +453,15 @@
         "type": "object",
         "properties": {
           "action": {
-            "description": "A prefix when making a signature",
+            "description": "Prefix used for signature generation.",
             "type": "string"
           },
           "user_address": {
-            "description": "User's wallet address",
+            "description": "Wallet address of the user.",
             "type": "string"
           },
           "signature": {
-            "description": "Signed {action}{user_address} by user's wallet",
+            "description": "Signature created by signing {action}{user_address} with the user's wallet.",
             "type": "string"
           }
         }
@@ -473,7 +473,7 @@
         "type": "object",
         "properties": {
           "balances": {
-            "description": "This object maps token addresses to their corresponding  `BalanceInfo` which includes available and freeze balances",
+            "description": "Mapping of token addresses to their respective balance details, including available and frozen balances.",
             "type": "object"
           }
         }
@@ -488,19 +488,19 @@
         "type": "object",
         "properties": {
           "token": {
-            "description": "A token address which user deposits",
+            "description": "The address of the token being deposited.",
             "type": "string"
           },
           "tx_id": {
-            "description": "Deposit transaction id",
+            "description": "The transaction ID of the deposit.",
             "type": "string"
           },
           "user_address": {
-            "description": "User's wallet address",
+            "description": "The wallet address of the user making the deposit.",
             "type": "string"
           },
           "signature": {
-            "description": "Signed {token}{tx_id} by user's wallet",
+            "description": "A digital signature of {token}{tx_id}, signed by the user's wallet.",
             "type": "string"
           }
         }
@@ -512,11 +512,11 @@
         "type": "object",
         "properties": {
           "status": {
-            "description": "success | not found",
+            "description": "Deposit status: success or not found.",
             "type": "string"
           },
           "message": {
-            "description": "details",
+            "description": "Additional details about the deposit status.",
             "type": "string"
           }
         }
@@ -532,25 +532,25 @@
         "type": "object",
         "properties": {
           "token_address": {
-            "description": "A token address which user withdraws",
+            "description": "The address of the token being withdrawn.",
             "type": "string"
           },
           "user_address": {
-            "description": "User's wallet address",
+            "description": "The wallet address of the user making the withdrawal.",
             "type": "string"
           },
           "amount": {
-            "description": "Token amount to be withdrawn",
+            "description": "The amount of tokens to be withdrawn.",
             "type": "string",
             "format": "int64"
           },
           "timestamp": {
-            "description": "Current timestamp. Seconds since 1970-01-01",
+            "description": "The current timestamp in seconds since January 1, 1970 (Unix epoch).",
             "type": "string",
             "format": "int64"
           },
           "signature": {
-            "description": "Signed {user_address}{token_address}{amount}{timestamp} by user's wallet",
+            "description": "A digital signature of {user_address}{token_address}{amount}{timestamp}, signed by the user's wallet.",
             "type": "string"
           }
         }
@@ -563,15 +563,15 @@
         "type": "object",
         "properties": {
           "tx_id": {
-            "description": "Withdraw transaction id",
+            "description": "The transaction ID of the withdrawal.",
             "type": "string"
           },
           "status": {
-            "description": "in progress | successed | failed",
+            "description": "Withdrawal status: in progress, succeeded, or failed.",
             "type": "string"
           },
           "message": {
-            "description": "details",
+            "description": "Additional details about the withdrawal status.",
             "type": "string"
           }
         }
@@ -583,11 +583,11 @@
         "type": "object",
         "properties": {
           "status": {
-            "description": "in progress | successed | failed | not found in db",
+            "description": "Withdrawal status: in progress, succeeded, failed, or not found in the database.",
             "type": "string"
           },
           "message": {
-            "description": "details",
+            "description": "Additional details about the withdrawal status.",
             "type": "string"
           }
         }
@@ -604,36 +604,36 @@
         "type": "object",
         "properties": {
           "is_public": {
-            "description": "Boolean value indicating public mode or vanish mode",
+            "description": "Indicates whether the trade is executed in public mode or vanish mode.",
             "type": "boolean"
           },
           "token_address": {
-            "description": "A token address which user buys",
+            "description": "The address of the token being purchased.",
             "type": "string"
           },
           "amount": {
-            "description": "Token amount to be bought",
+            "description": "The amount of tokens to be purchased.",
             "type": "string"
           },
           "slippage_bps": {
-            "description": "Slippage ranging from 1 to 10000",
+            "description": "The allowed slippage tolerance, ranging from 1 to 10,000 basis points (bps).",
             "type": "integer"
           },
           "deadline": {
-            "description": "Transaction deadline",
+            "description": "The trade expiration timestamp (in seconds).",
             "type": "integer"
           },
           "user_address": {
-            "description": "User's wallet address",
+            "description": "The wallet address of the user making the trade.",
             "type": "string"
           },
           "timestamp": {
-            "description": "Current timestamp. Seconds since 1970-01-01",
+            "description": "The current timestamp in seconds since January 1, 1970 (Unix epoch).",
             "type": "string",
             "format": "int64"
           },
           "signature": {
-            "description": "Signed {token_address}{amount}{slippage_bps}{deadline}{timestamp} by user's wallet",
+            "description": "A digital signature of {token_address}{amount}{slippage_bps}{deadline}{timestamp}, signed by the user's wallet.",
             "type": "string"
           }
         }
@@ -646,15 +646,15 @@
         "type": "object",
         "properties": {
           "tx_id": {
-            "description": "Trade transaction id",
+            "description": "The transaction ID of the trade.",
             "type": "string"
           },
           "status": {
-            "description": "initiated",
+            "description": "Trade status: initiated.",
             "type": "string"
           },
           "message": {
-            "description": "details",
+            "description": "Additional details about the trade status.",
             "type": "string"
           }
         }
@@ -666,11 +666,11 @@
         "type": "object",
         "properties": {
           "status": {
-            "description": "in progress | successed | failed",
+            "description": "Trade status: in progress, succeeded, or failed.",
             "type": "string"
           },
           "message": {
-            "description": "details",
+            "description": "Additional details about the trade status.",
             "type": "string"
           }
         }
@@ -682,7 +682,7 @@
         "type": "object",
         "properties": {
           "address": {
-            "description": "Central wallet address",
+            "description": "The address of the central wallet.",
             "type": "string"
           }
         }
