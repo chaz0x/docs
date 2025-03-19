@@ -355,6 +355,54 @@
         }
       }
     },
+    "/trade/pnl": {
+      "post": {
+        "description": "Retrieves profit and loss data for the user.",
+        "requestBody": {
+          "description": "Details of the pnl request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TradePNLRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful trade pnl response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradePNLResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/trade/{tx_id}": {
       "get": {
         "description": "Retrieves the status of a trade transaction (buy or sell) based on the provided transaction ID.",
@@ -656,6 +704,68 @@
           "message": {
             "description": "Additional details about the trade status.",
             "type": "string"
+          }
+        }
+      },
+      "TradePNLRequest": {
+        "required": [
+          "user_address",
+          "signature"
+        ],
+        "type": "object",
+        "properties": {
+          "token_address": {
+            "description": "Optional. If speicified, only requests PNL for the provided token_address",
+            "type": "string"
+          },
+          "user_address": {
+            "description": "Wallet address of the user.",
+            "type": "string"
+          },
+          "signature": {
+            "description": "Signature created by signing {'get_pnl'}{user_address}{token_address} with the user's wallet. If token_address is none, omit the field for signing.",
+            "type": "string"
+          }
+        }
+      },
+      "TradePNL": {
+        "type": "object",
+        "properties": {
+          "invested": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total amount of tokens (in SOL) invested."
+          },
+          "sold": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total amount of tokens (in SOL) sold."
+          },
+          "holding": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total amount of tokens (in SOL) still held."
+          },
+          "profit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The net profit or loss from the trade. (in SOL)"
+          }
+        },
+        "description": "Represents the profit and loss (PNL) details for a specific token trade."
+      }
+      "TradePNLResponse": {
+        "required": [
+          "pnls"
+        ],
+        "type": "object",
+        "properties": {
+          "pnls": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TradePNL"
+            },
+            "description": "A mapping of token addresses to their respective TradePNL data."
           }
         }
       },
