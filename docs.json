@@ -38,18 +38,33 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "Endpoints",
+            "group": "Account/User",
             "pages": [
-              "api-reference/endpoint/query_balance",
-              "api-reference/endpoint/deposit",
-              "api-reference/endpoint/deposit_status",
-              "api-reference/endpoint/withdraw",
-              "api-reference/endpoint/withdraw_status",
-              "api-reference/endpoint/trade_buy",
-              "api-reference/endpoint/trade_sell",
-              "api-reference/endpoint/trade_status",
-              "api-reference/endpoint/trade_pnls",
-              "api-reference/endpoint/central_wallet"
+              "api-reference/account-user/query_balance",
+            ]
+          },
+          {
+            "group": "Funds",
+            "pages": [
+              "api-reference/funds/deposit",
+              "api-reference/funds/deposit_status",
+              "api-reference/funds/withdraw",
+              "api-reference/funds/withdraw_status",
+            ]
+          },
+          {
+            "group": "Trade",
+            "pages": [
+              "api-reference/trade/trade_buy",
+              "api-reference/trade/trade_sell",
+              "api-reference/trade/trade_status",
+              "api-reference/trade/trade_pnls",
+            ]
+          },
+          {
+            "group": "Other",
+            "pages": [
+              "api-reference/other/central_wallet"
             ]
           }
         ]
