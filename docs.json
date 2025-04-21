@@ -40,7 +40,7 @@
           {
             "group": "Account/User",
             "pages": [
-              "api-reference/account-user/query_balance",
+              "api-reference/account-user/query_balance"
             ]
           },
           {
@@ -49,7 +49,7 @@
               "api-reference/funds/deposit",
               "api-reference/funds/deposit_status",
               "api-reference/funds/withdraw",
-              "api-reference/funds/withdraw_status",
+              "api-reference/funds/withdraw_status"
             ]
           },
           {
@@ -58,7 +58,7 @@
               "api-reference/trade/trade_buy",
               "api-reference/trade/trade_sell",
               "api-reference/trade/trade_status",
-              "api-reference/trade/trade_pnls",
+              "api-reference/trade/trade_pnls"
             ]
           },
           {
