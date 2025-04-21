@@ -885,7 +885,7 @@
         "properties": {
           "id": {
             "description": "Unique identifier for the team",
-            "type": "int64"
+            "type": "integer"
           },
           "name": {
             "description": "Human-readable name of the team",
