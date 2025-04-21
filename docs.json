@@ -44,7 +44,7 @@
             ]
           },
           {
-            "group": "Funds",
+            "group": "Fund Management",
             "pages": [
               "api-reference/funds/deposit",
               "api-reference/funds/deposit_status",
