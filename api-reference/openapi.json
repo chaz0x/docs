@@ -453,7 +453,7 @@
     },
     "/team/info": {
       "get": {
-        "description": "",
+        "description": "Retrieves the details of the team",
         "parameters": [],
         "responses": {
           "200": {
@@ -866,7 +866,7 @@
             "description": "Total amount of fees accumulated by the team to date (includes withdrawn)",
             "type": "string"
           },
-          "fee_address": {
+          "fee_remaining": {
             "description": "Remaining fees that are yet to be withdrawn",
             "type": "string"
           }
