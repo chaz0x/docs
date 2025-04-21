@@ -64,7 +64,8 @@
           {
             "group": "Team",
             "pages": [
-              "api-reference/team/info"
+              "api-reference/team/info",
+              "api-reference/team/withdraw_fee"
             ]
           },
           {
