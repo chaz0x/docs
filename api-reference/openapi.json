@@ -451,6 +451,44 @@
         }
       }
     },
+    "/team/info": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Team info response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamInfoResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/central_wallet": {
       "get": {
         "description": "Retrieves the address of the central wallet.",
@@ -793,6 +831,43 @@
         "properties": {
           "address": {
             "description": "The address of the central wallet.",
+            "type": "string"
+          }
+        }
+      },
+      "TeamInfoResponse": {
+        "required": [
+          "id",
+          "name",
+          "fee",
+          "fee_address",
+          "fee_total",
+          "fee_remaining"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the team",
+            "type": "int64"
+          },
+          "name": {
+            "description": "Human-readable name of the team",
+            "type": "string"
+          },
+          "fee": {
+            "description": "Fee percentage per trade. Represented in basis points (100 = 1%)",
+            "type": "string"
+          },
+          "fee_address": {
+            "description": "Wallet address where accumulated fees are sent when withdrawn",
+            "type": "string"
+          },
+          "fee_total": {
+            "description": "Total amount of fees accumulated by the team to date (includes withdrawn)",
+            "type": "string"
+          },
+          "fee_address": {
+            "description": "Remaining fees that are yet to be withdrawn",
             "type": "string"
           }
         }

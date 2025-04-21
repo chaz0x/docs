@@ -62,6 +62,12 @@
             ]
           },
           {
+            "group": "Team",
+            "pages": [
+              "api-reference/team/info"
+            ]
+          },
+          {
             "group": "Other",
             "pages": [
               "api-reference/other/central_wallet"
